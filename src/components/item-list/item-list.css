@@ -1,7 +1,6 @@
 .item-list {
     width: 100%;
     flex-direction: column;
-    margin-bottom: 3rem;
 }
 
 .item-list__item {
@@ -28,7 +27,6 @@
 
     .item-list {
         max-width: 50%;
-        margin-right: 1.5rem;
     }
 
     .item-list__item {

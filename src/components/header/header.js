@@ -6,27 +6,27 @@ const Header = () => {
     return (
         <div className = 'header'>
             <div className = 'logo'>
-                <a href = 'javascript:void(0);'>
+                <p>
                     SWDB
-                </a>
+                </p>
             </div>
 
             <nav className = 'navigation'>
                 <ul className = 'navigation-list'>
                     <li className = 'navigation-item'>
-                        <a href = 'javascript:void(0);' className = 'navigation-item__link'>
+                        <p className = 'navigation-item__link'>
                             People
-                        </a>
+                        </p>
                     </li>
                     <li className = 'navigation-item'>
-                        <a href = 'javascript:void(0);' className = 'navigation-item__link'>
+                        <p className = 'navigation-item__link'>
                             Planets
-                        </a>
+                        </p>
                     </li>
                     <li className = 'navigation-item'>
-                        <a href = 'javascript:void(0);' className = 'navigation-item__link'>
+                        <p className = 'navigation-item__link'>
                             Starships
-                        </a>
+                        </p>
                     </li>
                 </ul>
             </nav>

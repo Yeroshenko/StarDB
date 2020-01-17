@@ -1,31 +1,30 @@
-.person-details {
+.item-details {
     width: 100%;
     padding: 2rem;
-    margin-bottom: 3rem;
 }
 
-.person-details__image {
+.item-details__image {
     max-width: 20rem;
     border-radius: 2rem;
     margin-right: 2rem;
 }
 
-.person-description__list {
+.item-description__list {
     margin-top: 1.5rem;
 }
 
-.person-description__item {
+.item-description__item {
     padding: 0.5rem;
 }
 
-.person-description__key {
+.item-description__key {
     padding-right: 1rem;
 }
 
 @media (min-width: 992px) {
     
-    .person-details {
-        margin-left: 1.5rem;
+    .item-details {
         max-width: 50%;
+        
     }
 }   

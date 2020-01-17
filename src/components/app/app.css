@@ -1,5 +1,6 @@
 .card {
     display: flex;
+    margin-bottom: 3rem;
     border-radius: 2rem;
     background-color: #000000;
     box-shadow: 0px 9px 34px 0px rgba(0, 0, 0, .62);
@@ -8,11 +9,20 @@
 .wrap {
     display: flex; 
     flex-direction: column;
-    align-items: flex-start
+    align-items: flex-start;
 }
 
 @media (min-width: 992px) {
     .wrap {
       flex-direction: row;
+    }
+    .wrap > * {
+        margin: 0 1.5rem;
+    }
+    .wrap > :first-child {
+        margin-left: 0;
+    }
+    .wrap > :last-child {
+        margin-right: 0;
     }
 }

@@ -1,33 +1,53 @@
 import React , { Component } from 'react'
 
+import SwapiService from '../../services/swapi-service'
+
 import Header from '../header'
 import RandomPlanet from '../random-planet'
-import ItmeList from '../item-list'
-import PersonDetails from '../person-details'
+import PeoplePage from '../people-page'
+import ErrorIndicator from '../error-indicator'
+import ItemDetails from '../item-details'
+
 
 import './app.css'
 
 export default class App extends Component {
     
+    swapiService = new SwapiService()
+
     state = {
-        selectedPerson: 1
+        hasError: false
     }
-    
-    onPersonSelected = (id) => {
-        this.setState({
-            selectedPerson: id
-        })
+
+    componentDidCatch() {
+        this.setState({ hasError: true })
     }
 
     render() {
+
+        if(this.setState.hasError) {
+            return <ErrorIndicator />
+        }
+
+    const {getPerson, getStarship} = this.swapiService
+
+    const personDetails = (
+        <ItemDetails 
+            itemId = {11}
+            getData = {getPerson} />
+    )
+
+    const starshipDetails = (
+        <ItemDetails
+            itemId = {3}
+            getData = {getStarship} />
+    )
+
         return(
             <div>
                 <Header />
                 <RandomPlanet />
-                <div className = 'wrap'>
-                    <ItmeList onItemSelected = {this.onPersonSelected}/>
-                    <PersonDetails  personId = {this.state.selectedPerson}/>
-                </div>
+                <PeoplePage/>
             </div>
         )
     }
