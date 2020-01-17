@@ -1,0 +1,37 @@
+.item-list {
+    width: 100%;
+    flex-direction: column;
+    margin-bottom: 3rem;
+}
+
+.item-list__item {
+    width: 100%;
+    padding: 1.5rem 2rem;
+    text-align: center;
+    border: 0.2rem solid transparent;
+}
+
+.item-list__item:first-child {
+    border-radius: 2rem 2rem 0 0;
+}
+
+.item-list__item:last-child {
+    border-radius: 0 0 2rem 2rem;
+}
+
+.item-list__item:hover {
+    cursor: pointer;
+    border-color: #FFE81F;
+}
+
+@media (min-width: 992px) {
+
+    .item-list {
+        max-width: 50%;
+        margin-right: 1.5rem;
+    }
+
+    .item-list__item {
+      text-align: left;
+    }
+}
