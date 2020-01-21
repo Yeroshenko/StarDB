@@ -1,18 +1,26 @@
 import React, { Component } from 'react'
 
 import SwapiService from '../../services/swapi-service'
-import ErrorIndicator from '../error-indicator'
 import Spinner from '../spinner'
 
-import './item-details.css'
+import './item-details.scss'
 
-export default class ItemDetails extends Component {
+const Record = ({ item, field, label }) => {
+    return ( 
+        <li className="item-description__item">
+            <span className = 'item-description__key'>{label}</span>
+            <span className = 'item-description__value'>{ item[field]}</span>
+        </li>
+    )
+}
+
+class ItemDetails extends Component {
 
     swapiService = new SwapiService()
 
     state = {
         item: null,
-        loading: true
+        image: null
     }
 
     componentDidMount() {
@@ -22,93 +30,54 @@ export default class ItemDetails extends Component {
     componentDidUpdate(prevProps) {
         if (this.props.itemId !== prevProps.itemId) {
             this.updateItem() 
-            this.setState({
-                loading: true
-            })
         }
     }
 
-    onItemLoaded = (item) => {
-        this.setState({
-            item, 
-            loading: false,
-            error: false
-        })
-    }
-
-    onError = (err) => {
-        this.setState({
-            error: true,
-            loading: false
-        })
-    } 
-
     updateItem() {
-        const { itemId } = this.props
+        const { itemId, getData, getImageUrl } = this.props
 
         if (!itemId) { 
             return
         }
 
-        this.swapiService
-            .getPerson(itemId)
-            .then(this.onItemLoaded)
+        getData(itemId)
+            .then((item) => {
+                this.setState({
+                    item,
+                    image: getImageUrl(item)
+                })
+            })
             .catch(this.onError)
     }
 
     render() {
 
+        const { item, image } = this.state 
+
         if (!this.state.item) {
             return <Spinner />
         }
 
-        const {item, loading, error } = this.state
-
-        
-        const hasData = !(loading || error)
-
-        const errorMessage = error ? <ErrorIndicator /> : null
-        const spinner = loading ? <Spinner /> : null
-        const content = hasData ? <ItemView  item = {item}/> : null
+        const { name } = item
 
         return (
             <div className = 'item-details card'>
-                {errorMessage}
-                {spinner}
-                {content} 
+                <img className = 'item-details__image' alt = 'item'
+                    src = {image} />
+      
+                <div className="item-description item-details__description">
+                    <h3 className = 'item-description__name'> {name} </h3>
+                    <ul className = 'item-description__list'>
+                        { 
+                            React.Children.map(this.props.children, (child, idx) => {
+                                return React.cloneElement(child, { item })
+                            })
+                         }
+                    </ul>
+                </div>
             </div>
         )
     }
 }
 
-const ItemView = ({item}) => {
-
-    const { id, name, gender, birthYear, eyeColor } = item
-
-    return (
-        <React.Fragment>
-            <img className = 'item-details__image' alt = 'item'
-                src = {`https://starwars-visualguide.com/assets/img/characters/${id}.jpg`} />
-        
-            <div className="item-description item-details__description">
-                <h3 className = 'item-description__name'>{name}  </h3>
-
-                <ul className = 'item-description__list'>
-                    <li className="item-description__item">
-                        <span className = 'item-description__key'>Gender:</span>
-                        <span className = 'item-description__value'>{gender}</span>
-                    </li>
-                    <li className="item-description__item">
-                        <span className = 'item-description__key'>Birth Year:</span>
-                        <span className = 'item-description__value'>{birthYear}</span>
-                    </li>
-                    <li className="item-description__item">
-                        <span className = 'item-description__key'>Eye Colorred:</span>
-                        <span className = 'item-description__value'>{eyeColor}</span>
-                    </li>
-                    
-                </ul>
-            </div>
-        </React.Fragment>
-    )
-}
+export { ItemDetails, Record}

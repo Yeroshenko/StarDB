@@ -4,7 +4,7 @@ import SwapiService from '../../services/swapi-service'
 import ErrorIndicator from '../error-indicator'
 import Spinner from '../spinner'
 
-import './random-planet.css'
+import './random-planet.scss'
 
 export default class RandomPlanet extends Component {
     

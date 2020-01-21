@@ -6,23 +6,24 @@
     box-shadow: 0px 9px 34px 0px rgba(0, 0, 0, .62);
 }
 
-.wrap {
+.row {
     display: flex; 
     flex-direction: column;
     align-items: flex-start;
 }
 
 @media (min-width: 992px) {
-    .wrap {
+    .row {
       flex-direction: row;
     }
-    .wrap > * {
-        margin: 0 1.5rem;
+    .row > * {
+        margin-left: 1.5rem;
+        margin-right: 1.5rem;
     }
-    .wrap > :first-child {
+    .row > :first-child {
         margin-left: 0;
     }
-    .wrap > :last-child {
+    .row > :last-child {
         margin-right: 0;
     }
 }

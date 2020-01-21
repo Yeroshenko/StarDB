@@ -3,13 +3,24 @@ import React , { Component } from 'react'
 import SwapiService from '../../services/swapi-service'
 
 import Header from '../header'
-import RandomPlanet from '../random-planet'
-import PeoplePage from '../people-page'
+// import RandomPlanet from '../random-planet'
+// import PeoplePage from '../people-page'
+// import ItemList from '../item-list'
 import ErrorIndicator from '../error-indicator'
-import ItemDetails from '../item-details'
+// import  { ItemDetails, Record } from '../item-details'
 
+import { SwapiServiceProvider } from '../swapi-sevice-context' 
 
-import './app.css'
+import {
+    PersonList,
+    PlanetList,
+    StarshipList,
+    PersonDetails,
+    PlanetDetails,
+    StarshipDetails } from '../sw-components'
+
+import './app.scss'
+import ErrorBoundary from '../error-boundary'
 
 export default class App extends Component {
     
@@ -29,26 +40,29 @@ export default class App extends Component {
             return <ErrorIndicator />
         }
 
-    const {getPerson, getStarship} = this.swapiService
-
-    const personDetails = (
-        <ItemDetails 
-            itemId = {11}
-            getData = {getPerson} />
-    )
-
-    const starshipDetails = (
-        <ItemDetails
-            itemId = {3}
-            getData = {getStarship} />
-    )
-
         return(
-            <div>
-                <Header />
-                <RandomPlanet />
-                <PeoplePage/>
-            </div>
+            <ErrorBoundary>
+                <SwapiServiceProvider value = {this.swapiService}>
+                    <div>
+                        <Header />
+                        <div className = 'row'>
+                            <PersonList />
+                            <PersonDetails itemId = {1} />
+                        </div>
+
+                        <div className = 'row'>
+                            <StarshipList />
+                            <StarshipDetails itemId = {9} />
+                        </div>
+                        
+                        <div className = 'row'>
+                            <PlanetList />
+                            <PlanetDetails itemId = {2}/>
+                        </div>
+                    </div>
+                </SwapiServiceProvider>
+            </ErrorBoundary>
         )
     }
 }
+

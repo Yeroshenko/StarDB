@@ -1,0 +1,48 @@
+.header {
+    margin: 1rem 0 2rem;
+    padding-left: 1rem;
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    font-size: 4rem;
+    text-transform: uppercase;
+    color: #FFE81F;
+}
+
+.navigation {
+    margin-left: 5rem;
+
+    &-list {
+        display: flex;
+        font-size: 2rem;
+    }
+
+    &-item {
+        padding: 1rem 2rem;
+
+        &__link {
+            position: relative;
+
+            &::before {
+                content: '';
+                position: absolute;
+                left: 0;
+                bottom: 0;
+                height: 0.2rem;
+                width: 0;
+                background-color: #fff;
+                transition: .5s all;
+            }
+
+            &:hover {
+                &:before {
+                    width: 100%;
+                }
+            }
+
+        }
+    }
+
+}

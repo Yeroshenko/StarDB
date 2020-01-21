@@ -1,6 +1,6 @@
 import React from 'react'
 
-import './starship-details.css'
+import './starship-details.scss'
 
 const StarshipDetails = () => {
     return (

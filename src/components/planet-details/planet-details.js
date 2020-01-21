@@ -1,6 +1,6 @@
 import React from 'react'
 
-import './planet-details.css'
+import './planet-details.scss'
 
 const PlanetDetails = () => {
     return (

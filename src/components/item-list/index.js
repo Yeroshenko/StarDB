@@ -1,3 +1,3 @@
-import ItmeList from './item-list'
+import ItemList from './item-list'
 
-export default ItmeList
+export default ItemList

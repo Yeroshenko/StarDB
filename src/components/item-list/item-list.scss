@@ -1,0 +1,36 @@
+.item-list {
+    width: 100%;
+    flex-direction: column;
+
+    &__element {
+        width: 100%;
+        padding: 1.5rem 2rem;
+        text-align: center;
+        border: 0.2rem solid transparent;
+
+        &:first-child {
+            border-radius: 2rem 2rem 0 0;
+        }
+
+        &:last-child {
+            border-radius: 0 0 2rem 2rem;
+        }
+
+        &:hover {
+            cursor: pointer;
+            border-color: #FFE81F;
+        }
+    }
+}
+
+@media (min-width: 992px) {
+
+    .item-list {
+        max-width: 50%;
+
+        &__element {
+            text-align: left;
+          }
+    }
+
+}
