@@ -28,7 +28,10 @@ class ItemDetails extends Component {
     }
 
     componentDidUpdate(prevProps) {
-        if (this.props.itemId !== prevProps.itemId) {
+        if (this.props.itemId !== prevProps.itemId ||
+            this.props.getData !== prevProps.getData ||
+            this.props.getImageUrl !== prevProps.getImageUrl) {
+
             this.updateItem() 
         }
     }
@@ -54,9 +57,7 @@ class ItemDetails extends Component {
 
         const { item, image } = this.state 
 
-        if (!this.state.item) {
-            return <Spinner />
-        }
+        if (!item) return <Spinner />
 
         const { name } = item
 

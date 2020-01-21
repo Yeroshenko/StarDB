@@ -7,8 +7,10 @@ const PersonDetails = (props) => {
     return(
         <ItemDetails {...props} >
 
-            <Record field = 'gender' label = 'Gender: ' />
-            <Record field = 'eyeColor' label = 'Eye color: ' />
+            <Record field = 'gender' label = 'Gender:' />
+            <Record field = 'birthYear' label = 'Birth Year:' />
+            <Record field = 'height' label = 'Height:' />
+            <Record field = 'eyeColor' label = 'Eye color:' />
             
         </ItemDetails>
     )
@@ -21,4 +23,4 @@ const mapMethodsToProps = (swapiService) => {
     }
 }
 
-export default withSwapiService(PersonDetails, mapMethodsToProps)
+export default withSwapiService(mapMethodsToProps)(PersonDetails)

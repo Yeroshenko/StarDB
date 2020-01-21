@@ -2,7 +2,7 @@ import React from 'react'
 
 import './header.scss'
 
-const Header = () => {
+const Header = ({ onServiceChange }) => {
     return (
         <div className = 'header'>
             <div className = 'logo'>
@@ -30,6 +30,10 @@ const Header = () => {
                     </li>
                 </ul>
             </nav>
+            <button onClick = {onServiceChange} 
+                className = 'header__button button' >
+                Change Service
+            </button>
         </div>
     )
 }

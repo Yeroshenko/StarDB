@@ -1,33 +1,32 @@
 import React , { Component } from 'react'
 
+import DummySwapiService from '../../services/dummy-swapi-service'
 import SwapiService from '../../services/swapi-service'
-
 import Header from '../header'
-// import RandomPlanet from '../random-planet'
-// import PeoplePage from '../people-page'
-// import ItemList from '../item-list'
-import ErrorIndicator from '../error-indicator'
-// import  { ItemDetails, Record } from '../item-details'
+import RandomPlanet from '../random-planet'
+import ErrorBoundary from '../error-boundary'
+import { PeoplePage, PlanetPage, StarshipPage } from '../pages'
 
+ 
 import { SwapiServiceProvider } from '../swapi-sevice-context' 
 
-import {
-    PersonList,
-    PlanetList,
-    StarshipList,
-    PersonDetails,
-    PlanetDetails,
-    StarshipDetails } from '../sw-components'
-
 import './app.scss'
-import ErrorBoundary from '../error-boundary'
 
 export default class App extends Component {
-    
-    swapiService = new SwapiService()
 
     state = {
-        hasError: false
+        swapiService: new SwapiService()
+    }
+
+    onServiceChange = () => {
+        this.setState(({ swapiService }) => {
+            const Service = swapiService instanceof SwapiService ? 
+                            DummySwapiService : SwapiService
+
+            return {
+                swapiService: new Service ()
+            }
+        })
     }
 
     componentDidCatch() {
@@ -36,29 +35,17 @@ export default class App extends Component {
 
     render() {
 
-        if(this.setState.hasError) {
-            return <ErrorIndicator />
-        }
-
         return(
             <ErrorBoundary>
-                <SwapiServiceProvider value = {this.swapiService}>
+                <SwapiServiceProvider value = {this.state.swapiService}>
                     <div>
-                        <Header />
-                        <div className = 'row'>
-                            <PersonList />
-                            <PersonDetails itemId = {1} />
-                        </div>
-
-                        <div className = 'row'>
-                            <StarshipList />
-                            <StarshipDetails itemId = {9} />
-                        </div>
+                        <Header onServiceChange = {this.onServiceChange}/>
                         
-                        <div className = 'row'>
-                            <PlanetList />
-                            <PlanetDetails itemId = {2}/>
-                        </div>
+                        <RandomPlanet />
+                        <PeoplePage /> 
+                        <PlanetPage />
+                        <StarshipPage />
+                    
                     </div>
                 </SwapiServiceProvider>
             </ErrorBoundary>

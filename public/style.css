@@ -15,11 +15,14 @@ body {
     font-size: 1.8rem;
     color: #FFFFFF;
     background-color: #111111;
-    /* background-color: #040323; */
 }
 
 img {
   max-width: 100%;
+}
+
+button {
+  font-family: inherit;
 }
 
 h3 {
@@ -35,6 +38,7 @@ ul, li {
   list-style: none;
 }
 
+/* ---------- container ---------- */
 
 .container {
     width: 100%;
