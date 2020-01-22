@@ -19,8 +19,7 @@ class ItemDetails extends Component {
     swapiService = new SwapiService()
 
     state = {
-        item: null,
-        image: null
+        item: null
     }
 
     componentDidMount() {

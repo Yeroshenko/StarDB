@@ -1,12 +1,12 @@
 import WelcomePage from './welcome-page'
 import PeoplePage from './people-page'
-import PlanetPage from './planet-page'
-import StarshipPage from './starship-page'
+import PlanetsPage from './planets-page'
+import StarshipsPage from './starships-page'
 
 
 export {
     WelcomePage,
     PeoplePage,
-    PlanetPage,
-    StarshipPage
+    PlanetsPage,
+    StarshipsPage
 }

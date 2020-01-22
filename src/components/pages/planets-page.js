@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 
 import { PlanetList, PlanetDetails } from '../sw-components'
 
-export default class PlanetPage extends Component {
+export default class PlanetsPage extends Component {
 
     state = {
         selectedItem: 2

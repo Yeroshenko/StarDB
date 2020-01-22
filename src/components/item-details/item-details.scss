@@ -3,7 +3,7 @@
     padding: 2rem;
 
     &__image {
-        max-width: 20rem;
+        max-width: 45%;
         border-radius: 2rem;
         margin-right: 2rem;
     }
@@ -29,10 +29,3 @@
     }
 }
 
-@media (min-width: 992px) {
-    
-    .item-details {
-        max-width: 50%;
-        
-    }
-}   
