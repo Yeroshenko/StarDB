@@ -11,7 +11,7 @@ html {
 }
 
 body {
-    font-family: 'Alata', sans-serif;
+    font-family: 'Ubuntu', sans-serif;
     font-size: 1.8rem;
     color: #FFFFFF;
     background-color: #111111;
@@ -26,6 +26,7 @@ button {
 }
 
 h3 {
+  font-weight: 500;
   font-size: 3rem;
 }
 
