@@ -1,6 +1,6 @@
 import React from 'react'
 
-import './welcome-page.scss' 
+import './pages.scss' 
 
 const WelcomePage = () => {
     return(

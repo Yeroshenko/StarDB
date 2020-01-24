@@ -55,18 +55,3 @@
 
 }
 
-.button {
-    padding: 1rem 2rem;
-    margin-left: 0;
-    font-size: 1.8rem;
-    color: #000;
-    background-color: #FFE81F;
-    border-radius: 2rem;
-    border: none;
-    outline: none;
-
-    &:hover {
-        cursor: pointer;
-        box-shadow: 0px 0px 10px 0px rgba(#FFE81F, 0.62)
-    }
-}

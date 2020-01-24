@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 
 import SwapiService from '../../services/swapi-service'
-import Spinner from '../spinner'
 
 import './item-details.scss'
 
@@ -56,7 +55,11 @@ class ItemDetails extends Component {
 
         const { item, image } = this.state 
 
-        if (!item) return <Spinner />
+        if (!item) return (
+            <p className = 'message'> 
+                Select a item from a list
+            </p>
+        )
 
         const { name } = item
 

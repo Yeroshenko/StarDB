@@ -15,18 +15,28 @@ const Header = ({ onServiceChange }) => {
             <nav className = 'navigation'>
                 <ul className = 'navigation-list'>
                     <li className = 'navigation-item'>
-                        <Link to ='/people' className = 'navigation-item__link'>
+                        <Link to ='/people/' className = 'navigation-item__link'>
                             People
                         </Link>
                     </li>
                     <li className = 'navigation-item'>
-                        <Link to ='/planets' className = 'navigation-item__link'>
+                        <Link to ='/planets/' className = 'navigation-item__link'>
                             Planets
                         </Link>
                     </li>
                     <li className = 'navigation-item'>
-                        <Link to ='/starships' className = 'navigation-item__link'>
+                        <Link to ='/starships/' className = 'navigation-item__link'>
                             Starships
+                        </Link>
+                    </li>
+                    <li className = 'navigation-item'>
+                        <Link to ='/login/' className = 'navigation-item__link'>
+                            login
+                        </Link>
+                    </li>
+                    <li className = 'navigation-item'>
+                        <Link to ='/secret/' className = 'navigation-item__link'>
+                            Secret
                         </Link>
                     </li>
                 </ul>
